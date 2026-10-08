@@ -1,0 +1,2300 @@
+/* ==========================================================================
+   ARIANNE MEI Z. TORRES - PERSONAL PORTFOLIO
+   Design System & Master Stylesheet: Modern Minimalist Digital Book
+   Palette: Warm Beige / Ivory Cream + Pure White + Deep Ink + Soft Bookbinder Brown
+   Typography: Cormorant Garamond & Playfair Display (Serif) + Plus Jakarta Sans (Sans)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Warm Bookish Paper Palette */
+  --bg-cream: #fcfaf6;            /* Luminous warm ivory / fine book paper */
+  --bg-cream-alt: #f6f1e8;        /* Soft vellum / book page lining */
+  --bg-parchment: #ece5da;        /* Parchment accent for tags & badges */
+  --bg-surface: #ffffff;          /* Pure crisp white for pages and cards */
+  --bg-card: #fdfcfb;             /* Soft off-white paper texture */
+  
+  /* Text & Printer's Inks */
+  --text-main: #1a1614;           /* True deep charcoal-black ink */
+  --text-body: #2d2722;           /* Warm, high-contrast, comfortable body tone */
+  --text-muted: #6e6359;          /* Editorial captions, folios, and dates */
+  --text-light: #998e82;          /* Subtle indicators and rules */
+  
+  /* Bookbinder's Accents */
+  --accent-brown: #7c6958;        /* Warm bookbinder brown */
+  --accent-brown-dark: #524335;   /* Deep leather / title brown */
+  --accent-brown-light: #efe8de;  /* Soft parchment pill background */
+  --accent-gold-hint: #aa8e6c;    /* Classic warm gold/bronze rule */
+  
+  /* Page Rules & Spine Borders */
+  --border-subtle: #eae3d8;       /* Ultra-fine book rule */
+  --border-medium: #d8cebf;       /* Book cover and card border */
+  --border-spine: #7c6958;        /* Left spine binding line */
+  
+  /* Typography Tokens */
+  --font-serif-literary: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-serif-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Layout Proportions */
+  --container-max: 1120px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  
+  /* Tactile Book Shadows */
+  --shadow-book: 0 4px 20px rgba(35, 28, 20, 0.05), 0 1px 3px rgba(35, 28, 20, 0.03);
+  --shadow-hover: 0 8px 28px rgba(35, 28, 20, 0.09), 0 2px 8px rgba(35, 28, 20, 0.04);
+  --shadow-spine-crease: inset -2px 0 3px rgba(0, 0, 0, 0.06), inset 1px 0 2px rgba(255, 255, 255, 0.5);
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-cream);
+  color: var(--text-body);
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. READING PROGRESS BAR (BOOKMARK RIBBON TRACK)
+   -------------------------------------------------------------------------- */
+.reading-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: transparent;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.reading-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, var(--accent-brown), var(--accent-gold-hint));
+  transition: width 0.12s linear;
+}
+
+/* --------------------------------------------------------------------------
+   4. SITE HEADER & RUNNING HEAD NAVIGATION
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(252, 250, 246, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  z-index: 900;
+  transition: all var(--transition-fast);
+}
+
+.site-header.scrolled {
+  background-color: rgba(252, 250, 246, 0.98);
+  box-shadow: 0 2px 14px rgba(35, 28, 20, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Brand Folio Logo with Personal Profile Mark */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.brand-avatar-frame {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid var(--border-medium);
+  box-shadow: 0 1px 4px rgba(35, 28, 20, 0.08);
+  flex-shrink: 0;
+  background-color: var(--bg-surface);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.brand-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.brand-logo:hover .brand-avatar-frame {
+  transform: scale(1.05);
+  border-color: var(--accent-brown);
+  box-shadow: 0 2px 8px rgba(35, 28, 20, 0.12);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.logo-name {
+  font-family: var(--font-serif-heading);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.logo-folio {
+  font-family: var(--font-serif-literary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+  line-height: 1.1;
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  position: relative;
+  padding: 0.4rem 0;
+  letter-spacing: 0.02em;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--accent-brown);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 9px;
+  background-color: var(--bg-surface);
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--text-main);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(26, 22, 20, 0.4);
+  z-index: 850;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.mobile-overlay.is-active {
+  display: block;
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   5. RUNNING FOLIO HEADERS (ABOVE EACH CHAPTER)
+   -------------------------------------------------------------------------- */
+.running-folio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-serif-literary);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.folio-center {
+  color: var(--accent-gold-hint);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. CHAPTER HEADERS (UNIFIED LITERARY HEADINGS)
+   -------------------------------------------------------------------------- */
+.book-chapter {
+  padding: 6.5rem 0 7rem;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.chapter-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.75rem;
+}
+
+.chapter-numeral {
+  display: block;
+  font-family: var(--font-serif-literary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+  margin-bottom: 0.65rem;
+}
+
+.chapter-title {
+  font-family: var(--font-serif-heading);
+  font-size: 2.85rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text-main);
+  line-height: 1.18;
+  margin-bottom: 1.1rem;
+}
+
+.chapter-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0 auto 1.15rem;
+  max-width: 240px;
+}
+
+.chapter-rule-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-medium);
+}
+
+.chapter-rule-icon {
+  color: var(--accent-brown);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.chapter-subtext {
+  font-family: var(--font-serif-literary);
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   7. HERO / COVER PAGE (PROLOGUE & FRONTISPIECE)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 5.5rem 0 6.5rem;
+  position: relative;
+  background-color: var(--bg-cream);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-book-spread {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+/* Left Page: Cover Text */
+.hero-cover-text {
+  padding-right: 1rem;
+}
+
+.book-edition-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-brown-dark);
+  padding: 0.35rem 0.9rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 4px rgba(35, 28, 20, 0.03);
+}
+
+.edition-mark {
+  color: var(--accent-gold-hint);
+  font-size: 0.85rem;
+}
+
+.hero-title {
+  margin-bottom: 0.75rem;
+  line-height: 1.12;
+}
+
+.hero-title .greeting {
+  display: block;
+  font-family: var(--font-serif-literary);
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+}
+
+.hero-title .name-highlight {
+  display: block;
+  font-family: var(--font-serif-heading);
+  font-size: 3.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.025em;
+}
+
+.hero-role {
+  font-size: 1.28rem;
+  font-weight: 600;
+  color: var(--accent-brown);
+  margin-bottom: 1.35rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-tagline-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.85rem;
+}
+
+.tagline-item {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  padding: 0.28rem 0.8rem;
+  border-radius: var(--radius-xs);
+}
+
+.tagline-sep {
+  color: var(--accent-brown);
+  font-weight: 700;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--text-body);
+  line-height: 1.72;
+  margin-bottom: 1.5rem;
+  max-width: 540px;
+}
+
+/* Personal Reading Quote */
+.hero-reading-note {
+  font-family: var(--font-serif-literary);
+  font-size: 1.15rem;
+  color: var(--accent-brown-dark);
+  background-color: rgba(236, 229, 218, 0.5);
+  border-left: 3px solid var(--accent-brown);
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 2rem;
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+  line-height: 1.55;
+}
+
+/* Availability Box */
+.hero-availability-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.92rem;
+  padding: 0.55rem 1.1rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  margin-bottom: 2.35rem;
+  box-shadow: 0 1px 4px rgba(35, 28, 20, 0.03);
+}
+
+.status-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+.status-label {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.status-text {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Hero Action Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-book-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.85rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background-color: var(--text-main);
+  border: 1px solid var(--text-main);
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+
+.btn-book-primary:hover {
+  background-color: var(--accent-brown-dark);
+  border-color: var(--accent-brown-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-book);
+}
+
+.btn-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.btn-book-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-book-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+
+.btn-book-secondary:hover {
+  background-color: var(--bg-cream-alt);
+  border-color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+.btn-book-secondary:hover .btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+
+
+/* Right Page: Balanced Author Book Portrait Frame (~3x3 inches) */
+.hero-cover-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Compact Book-Style Frame Card */
+.author-book-frame {
+  position: relative;
+  width: 100%;
+  max-width: 305px;
+  background-color: #faf7f2;
+  border: 1px solid var(--border-medium);
+  border-left: 3px solid var(--accent-brown);
+  border-radius: 2px 4px 4px 2px;
+  padding: 1.25rem 1.15rem 1.2rem 1.25rem;
+  box-shadow: 
+    0 12px 28px -4px rgba(35, 28, 20, 0.09),
+    0 3px 8px rgba(35, 28, 20, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.author-book-frame:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 16px 34px -6px rgba(35, 28, 20, 0.13),
+    0 5px 12px rgba(35, 28, 20, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+/* Subtle Spine Binding Relief Line */
+.author-book-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 8px;
+  background: linear-gradient(90deg, rgba(124, 105, 88, 0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Subtle Bookmark Ribbon Tab */
+.frame-ribbon {
+  position: absolute;
+  top: -9px;
+  left: 22px;
+  width: 14px;
+  height: 22px;
+  background-color: var(--accent-brown);
+  box-shadow: 0 2px 5px rgba(35, 28, 20, 0.2);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 100%);
+  z-index: 2;
+  transition: transform var(--transition-fast);
+}
+
+.author-book-frame:hover .frame-ribbon {
+  transform: translateY(2px);
+}
+
+/* Inner Matting Board */
+.frame-inner {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid rgba(216, 206, 191, 0.7);
+  padding: 0.9rem 0.8rem 0.85rem;
+  border-radius: 2px;
+  text-align: center;
+  box-shadow: inset 0 0 0 1px rgba(246, 241, 232, 0.5);
+}
+
+/* Tiny Literary Header Tag */
+.frame-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-family: var(--font-serif-literary);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+  margin-bottom: 0.7rem;
+}
+
+.frame-dot {
+  color: var(--accent-gold-hint);
+  font-size: 0.7rem;
+}
+
+.frame-vol {
+  color: var(--text-muted);
+}
+
+/* Author Portrait Photo Container (~2.5 x 2.5 inches / 240px visually) */
+.frame-photo-container {
+  width: 240px;
+  height: 240px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+}
+
+.frame-photo-matting {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #faf7f2;
+  border: 1px solid var(--border-medium);
+  padding: 6px;
+  border-radius: 2px;
+  box-shadow: 
+    inset 0 1px 3px rgba(35, 28, 20, 0.05),
+    0 2px 8px rgba(35, 28, 20, 0.04);
+}
+
+.author-photo-square {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1px;
+  border: 1px solid rgba(216, 206, 191, 0.45);
+  display: block;
+  background-color: #ffffff;
+}
+
+/* Subtle Archival Corner Brackets */
+.frame-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--accent-brown);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.frame-corner.tl {
+  top: 2px;
+  left: 2px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.frame-corner.tr {
+  top: 2px;
+  right: 2px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.frame-corner.bl {
+  bottom: 2px;
+  left: 2px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.frame-corner.br {
+  bottom: 2px;
+  right: 2px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* Minimalist Author Nameplate */
+.frame-caption {
+  margin-top: 0.75rem;
+}
+
+.frame-name {
+  font-family: var(--font-serif-heading);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 0.15rem;
+}
+
+.frame-meta {
+  font-family: var(--font-serif-literary);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   8. CHAPTER 01: ABOUT ME (TWO-PAGE EDITORIAL SPREAD)
+   -------------------------------------------------------------------------- */
+.section-about {
+  background-color: var(--bg-surface);
+}
+
+.book-two-column-spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 4rem 3.5rem 3.5rem;
+  box-shadow: var(--shadow-book);
+  position: relative;
+}
+
+/* Subtle gutter fold in open book */
+.book-two-column-spread::after {
+  content: '';
+  position: absolute;
+  top: 2.5rem;
+  bottom: 2.5rem;
+  left: 50%;
+  width: 1px;
+  background-color: var(--border-subtle);
+  transform: translateX(-50%);
+}
+
+.editorial-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header-mark {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-serif-literary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.lead-paragraph {
+  font-size: 1.15rem;
+  line-height: 1.72;
+  color: var(--text-main);
+  margin-bottom: 1.35rem;
+}
+
+.page-body-text p {
+  font-size: 1.02rem;
+  color: var(--text-body);
+  line-height: 1.75;
+  margin-bottom: 1.35rem;
+}
+
+/* Status Box in About Me */
+.editorial-status-box {
+  margin-top: 2.25rem;
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 1.35rem 1.5rem;
+}
+
+.status-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.45rem;
+}
+
+.status-marker {
+  color: var(--accent-brown);
+  font-size: 0.85rem;
+}
+
+.status-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+}
+
+.status-body {
+  font-size: 0.94rem;
+  color: var(--text-body);
+  line-height: 1.62;
+}
+
+.page-footer-mark {
+  margin-top: auto;
+  padding-top: 2.25rem;
+  text-align: center;
+  font-family: var(--font-serif-literary);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+}
+
+/* Page 2: Core Capabilities Glossary */
+.editorial-section-subtitle {
+  font-family: var(--font-serif-heading);
+  font-size: 1.5rem;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.editorial-section-intro {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  margin-bottom: 1.85rem;
+  line-height: 1.55;
+}
+
+.glossary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.glossary-item {
+  padding-bottom: 1.15rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.glossary-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.glossary-term {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.glossary-def {
+  font-size: 0.92rem;
+  color: var(--text-body);
+  line-height: 1.62;
+}
+
+/* --------------------------------------------------------------------------
+   8b. PERSONAL STRENGTHS & VALUES (COMPACT EDITORIAL TAGS ON FOLIO 1)
+   -------------------------------------------------------------------------- */
+.editorial-traits-block {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.editorial-traits-intro {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 1.15rem;
+  line-height: 1.55;
+}
+
+.traits-box-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.55rem;
+  align-items: center;
+}
+
+.trait-box {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 0.38rem 0.72rem;
+  letter-spacing: 0.01em;
+  transition: all var(--transition-fast);
+  box-shadow: 0 1px 2px rgba(35, 28, 20, 0.03);
+}
+
+.trait-box:hover {
+  background-color: #ffffff;
+  border-color: var(--accent-brown);
+  color: var(--accent-brown);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(35, 28, 20, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   9. CHAPTER 02: MY JOURNEY (EXPERIENCE VOLUME CARD)
+   -------------------------------------------------------------------------- */
+.section-journey {
+  background-color: var(--bg-cream);
+}
+
+.journey-spread {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.journey-volume-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 3.5rem 3.75rem 3rem;
+  box-shadow: var(--shadow-book);
+  position: relative;
+}
+
+/* Bookmark Ribbon accent on the card */
+.journey-volume-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 3.75rem;
+  width: 26px;
+  height: 10px;
+  background-color: var(--accent-brown);
+  border-radius: 0 0 2px 2px;
+}
+
+.volume-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.volume-index {
+  display: block;
+  font-family: var(--font-serif-literary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+  margin-bottom: 0.35rem;
+}
+
+.volume-role {
+  font-family: var(--font-serif-heading);
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.volume-org {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.volume-badge {
+  padding: 0.4rem 1rem;
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+}
+
+.volume-year {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.05em;
+}
+
+.volume-divider {
+  height: 1px;
+  background-color: var(--border-subtle);
+  margin-bottom: 2.25rem;
+}
+
+.responsibilities-title {
+  font-family: var(--font-serif-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 1.4rem;
+}
+
+.clean-bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.05rem;
+  margin-bottom: 2.75rem;
+}
+
+.clean-bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.68;
+}
+
+.list-bullet {
+  color: var(--accent-brown);
+  font-size: 1.3rem;
+  line-height: 1.25;
+  flex-shrink: 0;
+}
+
+/* Takeaways */
+.volume-takeaways {
+  padding-top: 1.85rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+.takeaways-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+}
+
+.takeaways-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.takeaway-tag {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  padding: 0.32rem 0.85rem;
+  border-radius: var(--radius-xs);
+}
+
+.volume-card-footer-mark {
+  text-align: center;
+  font-family: var(--font-serif-literary);
+  font-size: 0.85rem;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+  padding-top: 1rem;
+}
+
+/* Additional Section: Key Competencies Practiced */
+.journey-competencies-card {
+  margin-top: 2.75rem;
+}
+
+.competencies-pill-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.competency-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  padding: 0.42rem 0.95rem;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+
+.competency-badge:hover {
+  background-color: var(--bg-cream-alt);
+  border-color: var(--accent-brown);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   10. CHAPTER 03: THINGS I’VE BUILT (PROJECTS - MINIMALIST BOOK COVERS)
+   -------------------------------------------------------------------------- */
+.section-projects {
+  background-color: var(--bg-surface);
+}
+
+.book-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+/* Minimalist Modern Book Cover */
+.book-cover-card {
+  position: relative;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.04), 4px 6px 18px rgba(35, 28, 20, 0.07);
+  display: flex;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  overflow: hidden;
+}
+
+.book-cover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.06), 6px 12px 26px rgba(35, 28, 20, 0.11);
+  border-color: var(--accent-brown);
+}
+
+/* Left Book Spine Binding Strip */
+.book-spine-strip {
+  width: 32px;
+  background: linear-gradient(to right, var(--accent-brown-dark), var(--accent-brown));
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-spine-crease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.spine-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-serif-literary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+}
+
+.book-cover-surface {
+  padding: 2.5rem 2.5rem 2.25rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.book-cover-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.cover-series-label {
+  font-family: var(--font-serif-literary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+}
+
+.cover-edition-year {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.cover-title-group {
+  margin-bottom: 1.15rem;
+}
+
+.book-cover-title {
+  font-family: var(--font-serif-literary);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.book-cover-author {
+  font-family: var(--font-serif-literary);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.cover-gold-rule {
+  width: 36px;
+  height: 1.5px;
+  background-color: var(--accent-gold-hint);
+}
+
+.book-cover-synopsis {
+  font-size: 0.96rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.book-cover-colophon {
+  margin-top: auto;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.colophon-title {
+  display: block;
+  font-family: var(--font-serif-literary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.55rem;
+}
+
+.colophon-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tech-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-xs);
+}
+
+/* --------------------------------------------------------------------------
+   11. CHAPTER 04: WHERE I’VE LEARNED (MINIMALIST BOOKSHELF PRESENTATION)
+   -------------------------------------------------------------------------- */
+.section-education {
+  background-color: var(--bg-cream);
+}
+
+.editorial-bookshelf-stage {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.bookshelf-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Each book volume standing on the shelf */
+.shelf-book-item {
+  display: flex;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-book);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  overflow: hidden;
+  position: relative;
+}
+
+.shelf-book-item:hover {
+  transform: translateX(6px);
+  border-color: var(--accent-brown);
+}
+
+/* Book Spine Binding on the shelf */
+.book-spine-binding {
+  width: 58px;
+  background: linear-gradient(to right, var(--bg-cream-alt), var(--bg-parchment));
+  border-right: 1px solid var(--border-medium);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.spine-vol-tag {
+  font-family: var(--font-serif-literary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-brown-dark);
+}
+
+.spine-gold-emboss {
+  width: 16px;
+  height: 2px;
+  background-color: var(--accent-gold-hint);
+}
+
+.shelf-book-body {
+  padding: 1.75rem 2.25rem;
+  flex-grow: 1;
+}
+
+.shelf-book-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+
+.shelf-status-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-brown-dark);
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  padding: 0.22rem 0.7rem;
+  border-radius: var(--radius-xs);
+}
+
+.shelf-status-pill.pill-honors {
+  color: #70471b;
+  background-color: #fbf4e4;
+  border-color: #e4d0a5;
+}
+
+.shelf-status-pill.pill-neutral {
+  color: var(--text-muted);
+}
+
+.shelf-period {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.shelf-degree-title {
+  font-family: var(--font-serif-literary);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+  margin-bottom: 0.3rem;
+}
+
+.shelf-track-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-brown);
+  margin-bottom: 0.35rem;
+}
+
+.shelf-school-name {
+  font-size: 0.94rem;
+  color: var(--text-body);
+}
+
+/* Bookshelf Base Ledge */
+.bookshelf-ledge {
+  margin-top: 1.5rem;
+}
+
+.ledge-top {
+  height: 8px;
+  background: linear-gradient(to bottom, #d8cebf, #c9bea9);
+  border-radius: 1px;
+}
+
+.ledge-front {
+  height: 12px;
+  background: linear-gradient(to bottom, #7c6958, #5a4b3d);
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 4px 10px rgba(35, 28, 20, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   12. CHAPTER 05: WHAT I’VE LEARNED (READING LEDGER TABLE)
+   -------------------------------------------------------------------------- */
+.section-learning {
+  background-color: var(--bg-surface);
+}
+
+.learning-ledger-wrapper {
+  max-width: 880px;
+  margin: 0 auto 3.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-book);
+  overflow: hidden;
+}
+
+.reading-ledger {
+  display: flex;
+  flex-direction: column;
+}
+
+.ledger-header-row {
+  display: grid;
+  grid-template-columns: 85px 1.4fr 1.1fr;
+  gap: 1rem;
+  padding: 1.1rem 2rem;
+  background-color: var(--bg-cream-alt);
+  border-bottom: 1px solid var(--border-medium);
+  font-family: var(--font-serif-literary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-brown-dark);
+}
+
+.ledger-row {
+  display: grid;
+  grid-template-columns: 85px 1.4fr 1.1fr;
+  gap: 1rem;
+  padding: 1.35rem 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+  align-items: center;
+  transition: background-color var(--transition-fast);
+}
+
+.ledger-row:last-child {
+  border-bottom: none;
+}
+
+.ledger-row:hover {
+  background-color: var(--bg-cream);
+}
+
+.ledger-cell-num {
+  font-family: var(--font-serif-literary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-brown);
+}
+
+.cert-item-title {
+  font-family: var(--font-serif-heading);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.38;
+}
+
+.cert-subdetail {
+  font-family: var(--font-serif-literary);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.cert-issuer-badge {
+  display: inline-block;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-body);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  padding: 0.28rem 0.8rem;
+  border-radius: var(--radius-xs);
+}
+
+.ledger-cell-source {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.cert-role-badge {
+  display: inline-block;
+  font-family: var(--font-serif-literary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-xs);
+}
+
+/* Bookmark Quote Card */
+.reading-bookmark-card {
+  max-width: 880px;
+  margin: 0 auto;
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 2.25rem 2.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--shadow-book);
+}
+
+.bookmark-ribbon {
+  position: absolute;
+  top: 0;
+  left: 2.75rem;
+  width: 22px;
+  height: 10px;
+  background-color: var(--accent-gold-hint);
+  border-radius: 0 0 2px 2px;
+}
+
+.bookmark-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bookmark-eyebrow {
+  display: block;
+  font-family: var(--font-serif-literary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+  line-height: 1.25;
+  margin-bottom: 0.65rem;
+}
+
+.bookmark-quote {
+  font-family: var(--font-serif-literary);
+  font-size: 1.45rem;
+  font-style: italic;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   13. CHAPTER 06: LET’S CONNECT (CORRESPONDENCE CARD)
+   -------------------------------------------------------------------------- */
+.section-contact {
+  background-color: var(--bg-cream);
+}
+
+.contact-editorial-card {
+  max-width: 1020px;
+  margin: 0 auto;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 3.5rem 3.5rem;
+  box-shadow: var(--shadow-book);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3.5rem;
+  position: relative;
+}
+
+.contact-col-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-intro-block {
+  margin-bottom: 2rem;
+}
+
+.contact-heading {
+  font-family: var(--font-serif-heading);
+  font-size: 1.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 1.1rem;
+}
+
+.contact-narrative {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.72;
+  margin-bottom: 2rem;
+}
+
+.contact-status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 0.45rem 0.95rem;
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+}
+
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+/* Channels List */
+.contact-channels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.contact-channel-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.contact-channel-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.channel-label {
+  font-family: var(--font-serif-literary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+}
+
+.channel-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: color var(--transition-fast);
+}
+
+.channel-value:hover {
+  color: var(--accent-brown);
+  text-decoration: underline;
+}
+
+.channel-value.plain-text {
+  color: var(--text-body);
+  font-weight: 500;
+}
+
+.channel-value.plain-text:hover {
+  text-decoration: none;
+  color: var(--text-body);
+}
+
+.contact-button-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Send a Message Box (Stationery & Correspondence Card) */
+.contact-col-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-card {
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 2.25rem 2rem 2.25rem;
+  box-shadow: 0 2px 12px rgba(35, 28, 20, 0.03);
+  position: relative;
+}
+
+.contact-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--accent-brown), var(--accent-gold-hint));
+  border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+}
+
+.form-header {
+  margin-bottom: 1.5rem;
+}
+
+.form-folio-mark {
+  font-family: var(--font-serif-literary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+  margin-bottom: 0.4rem;
+}
+
+.form-title {
+  font-family: var(--font-serif-heading);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+.form-subtext {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.contact-message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+}
+
+.form-label {
+  font-family: var(--font-serif-literary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 0.72rem 0.95rem;
+  line-height: 1.5;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  outline: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.88rem;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent-brown);
+  box-shadow: 0 0 0 3px rgba(124, 105, 88, 0.15);
+  background-color: #ffffff;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-submit-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.35rem;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   14. BOOK FOOTER / COLOPHON
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--bg-cream-alt);
+  border-top: 1px solid var(--border-medium);
+  padding: 5rem 0 4rem;
+  text-align: center;
+}
+
+.footer-colophon {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.colophon-mark {
+  color: var(--accent-gold-hint);
+  font-size: 1.35rem;
+  margin-bottom: 1.35rem;
+}
+
+.footer-name {
+  font-family: var(--font-serif-heading);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.footer-role {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--accent-brown);
+  margin-bottom: 0.25rem;
+}
+
+.footer-program {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.85rem;
+}
+
+.footer-folio-line {
+  font-family: var(--font-serif-literary);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  padding-bottom: 1.85rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-nav {
+  margin-bottom: 2.25rem;
+}
+
+.footer-nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-nav-list a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.footer-nav-list a:hover {
+  color: var(--text-main);
+}
+
+.copyright-text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.footer-subtext {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   15. TOAST NOTIFICATION FEEDBACK
+   -------------------------------------------------------------------------- */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--text-main);
+  color: #ffffff;
+  padding: 0.85rem 1.45rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.toast-notification.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   16. RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-book-spread {
+    grid-template-columns: 1fr;
+    gap: 3.75rem;
+    text-align: center;
+  }
+
+  .hero-cover-text {
+    padding-right: 0;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .hero-tagline-wrapper {
+    justify-content: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .author-book-frame {
+    margin: 0 auto;
+  }
+
+  .book-two-column-spread {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    padding: 3rem 2.25rem;
+  }
+
+  .book-two-column-spread::after {
+    display: none;
+  }
+
+  .contact-editorial-card {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+    padding: 3rem 2.25rem;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 4.5rem;
+    right: -100%;
+    width: 290px;
+    height: calc(100vh - 4.5rem);
+    background-color: var(--bg-surface);
+    border-left: 1px solid var(--border-medium);
+    padding: 2.75rem 2rem;
+    box-shadow: -4px 0 24px rgba(35, 28, 20, 0.09);
+    transition: right var(--transition-normal);
+    z-index: 950;
+  }
+
+  .brand-avatar-frame {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo-name {
+    font-size: 1.05rem;
+  }
+
+  .nav-menu.is-active {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.65rem;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .running-folio-header {
+    font-size: 0.78rem;
+  }
+
+  .folio-center {
+    display: none;
+  }
+
+  .book-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-title .name-highlight {
+    font-size: 2.9rem;
+  }
+
+  .chapter-title {
+    font-size: 2.35rem;
+  }
+
+  .journey-volume-card {
+    padding: 2.5rem 2rem;
+  }
+
+  .journey-volume-card::before {
+    left: 2rem;
+  }
+
+  .ledger-header-row,
+  .ledger-row {
+    grid-template-columns: 60px 1fr;
+  }
+
+  .ledger-col-source {
+    display: none;
+  }
+
+  .ledger-cell-source {
+    grid-column: 2 / -1;
+    margin-top: 0.35rem;
+  }
+
+  .reading-bookmark-card {
+    padding: 2rem 2rem;
+  }
+
+  .bookmark-ribbon {
+    left: 2rem;
+  }
+
+  .bookmark-quote {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .hero-title .name-highlight {
+    font-size: 2.4rem;
+  }
+
+  .hero-role {
+    font-size: 1.15rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-book-primary,
+  .btn-book-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .author-book-frame {
+    max-width: 270px;
+    padding: 1.15rem 1.05rem 1.15rem 1.2rem;
+    margin: 0 auto;
+  }
+
+  .frame-photo-container {
+    width: 210px;
+    height: 210px;
+  }
+
+  .book-cover-card {
+    flex-direction: column;
+  }
+
+  .book-spine-strip {
+    width: 100%;
+    height: 22px;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .spine-text {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+
+  .book-cover-surface {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .contact-editorial-card {
+    padding: 2rem 1.25rem;
+  }
+
+
+  .traits-box-cloud {
+    gap: 0.45rem;
+  }
+
+  .trait-box {
+    font-size: 0.8rem;
+    padding: 0.32rem 0.65rem;
+  }
+
+  .contact-form-card {
+    padding: 1.65rem 1.15rem 1.85rem;
+  }
+
+  .brand-logo {
+    gap: 0.65rem;
+  }
+
+  .brand-avatar-frame {
+    width: 34px;
+    height: 34px;
+  }
+
+  .logo-name {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+  }
+
+  .logo-folio {
+    font-size: 0.72rem;
+  }
+
+  .contact-button-row {
+    flex-direction: column;
+  }
+
+  .shelf-book-item {
+    flex-direction: column;
+  }
+
+  .book-spine-binding {
+    width: 100%;
+    height: 32px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-medium);
+    flex-direction: row;
+  }
+
+  .shelf-book-body {
+    padding: 1.35rem 1.25rem;
+  }
+
+  .reading-bookmark-card {
+    padding: 1.75rem 1.35rem;
+  }
+
+  .bookmark-ribbon {
+    left: 1.35rem;
+  }
+
+  .bookmark-quote {
+    font-size: 1.18rem;
+    line-height: 1.45;
+  }
+}

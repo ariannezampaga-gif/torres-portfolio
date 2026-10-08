@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO & Social Meta Tags -->
+  <title>Arianne Mei Z. Torres | Information Systems Student Portfolio</title>
+  <meta name="description"
+    content="A modern, minimalist digital book and personal portfolio of Arianne Mei Z. Torres — BS Information Systems student (Service Management Track) at DMMMSU-NLUC, La Union, Philippines. Open to Opportunities.">
+  <meta name="keywords"
+    content="Arianne Mei Torres, Information Systems, Book Portfolio, Editorial Portfolio, La Union, DMMMSU, Service Management, Student Portfolio">
+  <meta name="author" content="Arianne Mei Z. Torres">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Arianne Mei Z. Torres | Personal Book Portfolio">
+  <meta property="og:description"
+    content="Information Systems Student passionate about digital tools, communication, and organization. Open to Opportunities.">
+  <meta property="og:locale" content="en_PH">
+
+  <!-- Google Fonts: Cormorant Garamond & Playfair Display (Literary Serifs) + Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Reading Progress Bar (Subtle Book Ribbon Indicator) -->
+  <div class="reading-progress-track" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress"></div>
+  </div>
+
+  <!-- =================================================================
+       HEADER / NAVIGATION (Book Folio & Running Head)
+       ================================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo" aria-label="Arianne Mei Z. Torres - Return to Cover Page">
+        <div class="brand-avatar-frame">
+          <img src="assets/profile.jpg" alt="Arianne Mei Z. Torres" class="brand-avatar-img">
+        </div>
+        <div class="brand-text">
+          <span class="logo-name">ARIANNE MEI Z. TORRES</span>
+          <span class="logo-folio">Folio · 2026</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Book Table of Contents">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#journey" class="nav-link">Journey</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#learning" class="nav-link">Learning</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Open Navigation Index" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Backdrop -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+
+  <main id="book-content">
+    <!-- =================================================================
+         HERO / COVER PAGE (Prologue & Frontispiece)
+         ================================================================= -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+
+        <div class="hero-book-spread">
+
+          <!-- Left Page: Cover Presentation & Title -->
+          <div class="hero-cover-text">
+
+            <div class="book-edition-badge">
+              <span class="edition-mark">❖</span>
+              <span>Personal Portfolio · Digital Book Edition</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span class="greeting">Hello,</span>
+              <span class="name-highlight">I’m Arianne!</span>
+            </h1>
+
+            <p class="hero-role">Information Systems Student</p>
+
+            <div class="hero-tagline-wrapper">
+              <span class="tagline-item">Digital tools</span>
+              <span class="tagline-sep">·</span>
+              <span class="tagline-item">Communication</span>
+              <span class="tagline-sep">·</span>
+              <span class="tagline-item">Organization</span>
+            </div>
+
+            <p class="hero-description">
+              "I'm a third-year BS Information Systems student who enjoys working with digital tools, creating content,
+              communicating with people, and keeping things organized."
+            </p>
+
+            <!-- Subtle Personal Reading Detail -->
+            <p class="hero-reading-note">
+              <em>“When I’m not working with digital tools, you’ll probably find me reading.”</em>
+            </p>
+
+            <!-- Status Indicator -->
+            <div class="hero-availability-box">
+              <span class="status-indicator-dot"></span>
+              <span class="status-label">Status:</span>
+              <span class="status-text">Open to Opportunities</span>
+            </div>
+
+            <!-- Page Action Links -->
+            <div class="hero-actions">
+              <a href="#about" class="btn-book-primary">
+                <span>Begin Reading (Chapter 01)</span>
+                <span class="btn-arrow">→</span>
+              </a>
+              <a href="assets/Arianne-Mei-Torres-Resume.pdf" target="_blank" rel="noopener noreferrer"
+                class="btn-book-secondary" id="hero-view-resume">
+                <span>View Resume</span>
+                <span class="btn-arrow">↗</span>
+              </a>
+              <a href="#contact" class="btn-book-secondary">
+                <span>Let's Connect</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Page: Balanced Author Portrait Frame (~3x3 inch frame) -->
+          <div class="hero-cover-visual">
+            <div class="author-book-frame" id="author-book-frame">
+
+              <!-- Subtle Bookmark Ribbon -->
+              <div class="frame-ribbon" aria-hidden="true"></div>
+
+              <!-- Inner Archival Matting -->
+              <div class="frame-inner">
+
+                <!-- Tiny Header Tag -->
+                <div class="frame-header">
+                  <span class="frame-tag">Author Portrait</span>
+                  <span class="frame-dot">·</span>
+                  <span class="frame-vol">2026</span>
+                </div>
+
+                <!-- Balanced Author Portrait Square Frame (~2.5 x 2.5 inches visually) -->
+                <div class="frame-photo-container">
+                  <div class="frame-photo-matting">
+                    <img src="assets/arianne-profile.jpg" alt="Portrait of Arianne Mei Z. Torres"
+                      class="author-photo-square" id="hero-portrait" loading="eager"
+                      onerror="this.onerror=null; this.src='assets/profile.jpg';">
+                    <div class="frame-corner tl" aria-hidden="true"></div>
+                    <div class="frame-corner tr" aria-hidden="true"></div>
+                    <div class="frame-corner bl" aria-hidden="true"></div>
+                    <div class="frame-corner br" aria-hidden="true"></div>
+                  </div>
+                </div>
+
+                <!-- Minimalist Author Nameplate -->
+                <div class="frame-caption">
+                  <h3 class="frame-name">Arianne Mei Z. Torres</h3>
+                  <p class="frame-meta">BS Information Systems</p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CHAPTER 01: ABOUT ME
+         ================================================================= -->
+    <section class="book-chapter section-about" id="about">
+      <div class="container">
+
+        <!-- Running Folio Header -->
+        <div class="running-folio-header" aria-hidden="true">
+          <span class="folio-left">Arianne Mei Z. Torres — Personal Portfolio</span>
+          <span class="folio-center">❦</span>
+          <span class="folio-right">Chapter 01 · p. 01</span>
+        </div>
+
+        <!-- Chapter Header -->
+        <header class="chapter-header">
+          <span class="chapter-numeral">CHAPTER 01</span>
+          <h2 class="chapter-title">About Me</h2>
+          <div class="chapter-rule">
+            <span class="chapter-rule-line"></span>
+            <span class="chapter-rule-icon">❧</span>
+            <span class="chapter-rule-line"></span>
+          </div>
+          <p class="chapter-subtext">A little about the person behind the portfolio.</p>
+        </header>
+
+        <div class="book-two-column-spread">
+
+          <!-- Column 1: Narrative Story -->
+          <div class="editorial-page page-left">
+            <div class="page-header-mark">
+              <span class="page-folio-label">Chapter 01 · Narrative</span>
+              <span class="page-num">Folio I</span>
+            </div>
+
+            <div class="page-body-text">
+              <p class="lead-paragraph">
+                I am a BS Information Systems student taking the <strong>Service Management Track</strong> at Don
+                Mariano Marcos Memorial State University – North La Union Campus.
+              </p>
+              <p>
+                Most of my practical experience comes from student organization work, where I served as a
+                <strong>secretary</strong>. Through this experience, I worked with social media content, formal
+                communications, coordination, student inquiries, and school activities.
+              </p>
+              <p>
+                I also have experience with basic programming, databases, and web technologies. While I am still
+                developing my technical skills, I am more interested in how technology and digital tools can be used to
+                support people, communication, and everyday work.
+              </p>
+            </div>
+
+            <!-- Personal Strengths & Values (Compact Tags Cloud) -->
+            <div class="editorial-traits-block" id="strengths-values">
+              <h3 class="editorial-section-subtitle">Personal Strengths &amp; Values</h3>
+              <p class="editorial-traits-intro">
+                Core traits and guiding principles cultivated through academic training and organization service:
+              </p>
+              <div class="traits-box-cloud">
+                <span class="trait-box">Adaptability</span>
+                <span class="trait-box">Responsibility</span>
+                <span class="trait-box">Attention to Detail</span>
+                <span class="trait-box">Willingness to Learn</span>
+                <span class="trait-box">Initiative</span>
+                <span class="trait-box">Organization</span>
+                <span class="trait-box">Persistence</span>
+                <span class="trait-box">Confidence</span>
+                <span class="trait-box">Integrity</span>
+                <span class="trait-box">Respect</span>
+                <span class="trait-box">Commitment</span>
+                <span class="trait-box">Teamwork</span>
+                <span class="trait-box">Accountability</span>
+                <span class="trait-box">Service</span>
+                <span class="trait-box">Growth</span>
+                <span class="trait-box">Continuous Learning</span>
+              </div>
+            </div>
+
+            <!-- Current Availability Note -->
+            <div class="editorial-status-box">
+              <div class="status-box-header">
+                <span class="status-marker">❖</span>
+                <span class="status-title">Current Availability</span>
+              </div>
+              <p class="status-body">
+                <strong>Open to Opportunities:</strong> Eager to contribute, gain hands-on experience, and learn
+                alongside seasoned professionals across diverse projects and collaborations.
+              </p>
+            </div>
+
+            <div class="page-footer-mark">
+              <span>— 01 —</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Capabilities & Competencies Glossary -->
+          <div class="editorial-page page-right">
+            <div class="page-header-mark">
+              <span class="page-folio-label">Chapter 01 · Competencies</span>
+              <span class="page-num">Folio II</span>
+            </div>
+
+            <h3 class="editorial-section-subtitle">Core Capabilities</h3>
+            <p class="editorial-section-intro">
+              A balanced set of digital competencies, communication practices, and organizational habits:
+            </p>
+
+            <div class="glossary-list">
+
+              <article class="glossary-item">
+                <span class="glossary-term">01. Computer Proficiency</span>
+                <p class="glossary-def">
+                  Comfortable using common digital tools and computer applications for school, organization, and
+                  productivity tasks.
+                </p>
+              </article>
+
+              <article class="glossary-item">
+                <span class="glossary-term">02. Communication</span>
+                <p class="glossary-def">
+                  Able to communicate with students, faculty, staff, and other people in a clear and respectful way.
+                </p>
+              </article>
+
+              <article class="glossary-item">
+                <span class="glossary-term">03. Digital Content</span>
+                <p class="glossary-def">
+                  Experience creating announcements, promotional content, social media posts, and other digital
+                  materials.
+                </p>
+              </article>
+
+              <article class="glossary-item">
+                <span class="glossary-term">04. Organization</span>
+                <p class="glossary-def">
+                  Able to manage tasks, schedules, documents, and responsibilities in an orderly and timely manner.
+                </p>
+              </article>
+
+              <article class="glossary-item">
+                <span class="glossary-term">05. Customer Focus</span>
+                <p class="glossary-def">
+                  Interested in understanding people's needs and providing helpful, respectful, and responsive support.
+                </p>
+              </article>
+
+              <article class="glossary-item">
+                <span class="glossary-term">06. Information Management</span>
+                <p class="glossary-def">
+                  Able to organize and present information clearly using digital tools for school, organization, and
+                  project-related tasks.
+                </p>
+              </article>
+
+              <article class="glossary-item">
+                <span class="glossary-term">07. Coordination</span>
+                <p class="glossary-def">
+                  Able to work with students, officers, faculty, and staff to help carry out activities and ensure tasks
+                  are properly coordinated.
+                </p>
+              </article>
+
+              <article class="glossary-item">
+                <span class="glossary-term">08. Willingness to Learn</span>
+                <p class="glossary-def">
+                  Open to learning new technologies, tools, and skills to improve knowledge and adapt to new challenges.
+                </p>
+              </article>
+
+            </div>
+
+            <div class="page-footer-mark">
+              <span>— 02 —</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CHAPTER 02: MY JOURNEY (Experience)
+         ================================================================= -->
+    <section class="book-chapter section-journey" id="journey">
+      <div class="container">
+
+        <!-- Running Folio Header -->
+        <div class="running-folio-header" aria-hidden="true">
+          <span class="folio-left">Arianne Mei Z. Torres — Personal Portfolio</span>
+          <span class="folio-center">❦</span>
+          <span class="folio-right">Chapter 02 · p. 03</span>
+        </div>
+
+        <!-- Chapter Header -->
+        <header class="chapter-header">
+          <span class="chapter-numeral">CHAPTER 02</span>
+          <h2 class="chapter-title">My Journey</h2>
+          <div class="chapter-rule">
+            <span class="chapter-rule-line"></span>
+            <span class="chapter-rule-icon">❧</span>
+            <span class="chapter-rule-line"></span>
+          </div>
+          <p class="chapter-subtext">A chapter on student leadership, coordination, and hands-on administrative service.
+          </p>
+        </header>
+
+        <div class="journey-spread">
+          <article class="journey-volume-card">
+
+            <div class="volume-header">
+              <div class="volume-title-meta">
+                <span class="volume-index">Chronicle I · Student Governance</span>
+                <h3 class="volume-role">SECRETARY</h3>
+                <p class="volume-org">College of Information Systems - Student Body Organization</p>
+              </div>
+              <div class="volume-badge">
+                <span class="volume-year">AY 2025–2026</span>
+              </div>
+            </div>
+
+            <div class="volume-divider"></div>
+
+            <div class="volume-body">
+              <h4 class="responsibilities-title">Key Responsibilities:</h4>
+
+              <ul class="clean-bullet-list">
+                <li>
+                  <span class="list-bullet">•</span>
+                  <span>Managed and assisted in maintaining the organization’s official social media page.</span>
+                </li>
+                <li>
+                  <span class="list-bullet">•</span>
+                  <span>Created and posted announcements, event promotions, and student-related content.</span>
+                </li>
+                <li>
+                  <span class="list-bullet">•</span>
+                  <span>Prepared formal letters, invitations, and other written communications for school events and
+                    activities.</span>
+                </li>
+                <li>
+                  <span class="list-bullet">•</span>
+                  <span>Communicated and coordinated with students, organization officers, faculty members, staff, and
+                    school heads regarding activities and announcements.</span>
+                </li>
+                <li>
+                  <span class="list-bullet">•</span>
+                  <span>Responded to student inquiries and provided information through online communication
+                    channels.</span>
+                </li>
+                <li>
+                  <span class="list-bullet">•</span>
+                  <span>Assisted in promoting organization activities through social media and other digital
+                    platforms.</span>
+                </li>
+                <li>
+                  <span class="list-bullet">•</span>
+                  <span>Helped organize and prepare information for school events and activities.</span>
+                </li>
+                <li>
+                  <span class="list-bullet">•</span>
+                  <span>Coordinated with fellow student officers to ensure timely posting of announcements and
+                    updates.</span>
+                </li>
+                <li>
+                  <span class="list-bullet">•</span>
+                  <span>Used digital platforms to support student engagement and communication.</span>
+                </li>
+              </ul>
+
+            </div>
+
+            <div class="volume-card-footer-mark">
+              <span>— Record of Service · AY 2025–2026 —</span>
+            </div>
+
+          </article>
+
+          <!-- Additional Section: Key Competencies Practiced -->
+          <article class="journey-volume-card journey-competencies-card">
+            <div class="volume-header">
+              <div class="volume-title-meta">
+                <span class="volume-index">Chronicle II · Applied Skills</span>
+                <h3 class="volume-role">KEY COMPETENCIES PRACTICED</h3>
+                <p class="volume-org">Competencies cultivated through student governance and organizational leadership
+                </p>
+              </div>
+            </div>
+
+            <div class="volume-divider"></div>
+
+            <div class="volume-body">
+              <div class="competencies-pill-cloud">
+                <span class="competency-badge">Professional Communication</span>
+                <span class="competency-badge">Event Coordination</span>
+                <span class="competency-badge">Social Media Management</span>
+                <span class="competency-badge">Document & Records Management</span>
+                <span class="competency-badge">Information Organization</span>
+                <span class="competency-badge">Administrative Support</span>
+                <span class="competency-badge">Team Collaboration</span>
+                <span class="competency-badge">Time Management</span>
+                <span class="competency-badge">Student Coordination</span>
+                <span class="competency-badge">Digital Content Creation</span>
+              </div>
+            </div>
+
+            <div class="volume-card-footer-mark">
+              <span>— Demonstrated Capabilities · Service & Governance —</span>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CHAPTER 03: THINGS I’VE BUILT (Projects)
+         ================================================================= -->
+    <section class="book-chapter section-projects" id="projects">
+      <div class="container">
+
+        <!-- Running Folio Header -->
+        <div class="running-folio-header" aria-hidden="true">
+          <span class="folio-left">Arianne Mei Z. Torres — Personal Portfolio</span>
+          <span class="folio-center">❦</span>
+          <span class="folio-right">Chapter 03 · p. 04</span>
+        </div>
+
+        <!-- Chapter Header -->
+        <header class="chapter-header">
+          <span class="chapter-numeral">CHAPTER 03</span>
+          <h2 class="chapter-title">Things I’ve Built</h2>
+          <div class="chapter-rule">
+            <span class="chapter-rule-line"></span>
+            <span class="chapter-rule-icon">❧</span>
+            <span class="chapter-rule-line"></span>
+          </div>
+          <p class="chapter-subtext">Academic systems and applications developed to address real organizational and
+            scheduling needs.</p>
+        </header>
+
+        <div class="book-projects-grid">
+
+          <!-- Project 1: Campus Facility Reservation System -->
+          <article class="book-cover-card">
+            <div class="book-spine-strip" aria-hidden="true">
+              <span class="spine-text">VOL. I</span>
+            </div>
+
+            <div class="book-cover-surface">
+              <div class="book-cover-header">
+                <span class="cover-series-label">VOLUME I · WEB SYSTEM</span>
+                <span class="cover-edition-year">AY 2026–2027</span>
+              </div>
+
+              <div class="cover-title-group">
+                <h3 class="book-cover-title">Campus Facility Reservation System</h3>
+                <p class="book-cover-author">By Arianne Mei Z. Torres</p>
+                <div class="cover-gold-rule"></div>
+              </div>
+
+              <p class="book-cover-synopsis">
+                The Campus Facility Reservation System is a web-based system designed to make campus facility
+                reservations more organized and convenient. It allows users to view facility information, submit
+                reservation requests, and track reservation status. I developed the system independently, handling the
+                design, development, and implementation of its main features.
+              </p>
+
+              <div class="book-cover-colophon">
+                <span class="colophon-title">Colophon · Tech Stack:</span>
+                <div class="colophon-pills">
+                  <span class="tech-pill">PHP</span>
+                  <span class="tech-pill">MySQL</span>
+                  <span class="tech-pill">HTML</span>
+                  <span class="tech-pill">CSS</span>
+                  <span class="tech-pill">JavaScript</span>
+                  <span class="tech-pill">XAMPP</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Smart Academic Planner & Scheduler -->
+          <article class="book-cover-card">
+            <div class="book-spine-strip" aria-hidden="true">
+              <span class="spine-text">VOL. II</span>
+            </div>
+
+            <div class="book-cover-surface">
+              <div class="book-cover-header">
+                <span class="cover-series-label">VOLUME II · WEB APPLICATION</span>
+                <span class="cover-edition-year">AY 2025–2026</span>
+              </div>
+
+              <div class="cover-title-group">
+                <h3 class="book-cover-title">Smart Academic Planner & Scheduler</h3>
+                <p class="book-cover-author">By Arianne Mei Z. Torres</p>
+                <div class="cover-gold-rule"></div>
+              </div>
+
+              <p class="book-cover-synopsis">
+                The Smart Academic Planner & Scheduler is a web-based application designed to help students organize
+                their academic schedules, subjects, tasks, and activities. It provides a centralized space where
+                students can manage their academic responsibilities and schedules. My main contribution was creating and
+                developing the calendar page for the system.
+              </p>
+
+              <div class="book-cover-colophon">
+                <span class="colophon-title">Colophon · Tech Stack:</span>
+                <div class="colophon-pills">
+                  <span class="tech-pill">Python</span>
+                  <span class="tech-pill">Django</span>
+                  <span class="tech-pill">HTML</span>
+                  <span class="tech-pill">CSS</span>
+                  <span class="tech-pill">JavaScript</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Task Reminder App -->
+          <article class="book-cover-card">
+            <div class="book-spine-strip" aria-hidden="true">
+              <span class="spine-text">VOL. III</span>
+            </div>
+
+            <div class="book-cover-surface">
+              <div class="book-cover-header">
+                <span class="cover-series-label">VOLUME III · PRODUCTIVITY APP</span>
+                <span class="cover-edition-year">AY 2025–2026</span>
+              </div>
+
+              <div class="cover-title-group">
+                <h3 class="book-cover-title">Task Reminder App</h3>
+                <p class="book-cover-author">By Arianne Mei Z. Torres</p>
+                <div class="cover-gold-rule"></div>
+              </div>
+
+              <p class="book-cover-synopsis">
+                The Task Reminder App is an application designed to help users organize and keep track of their tasks,
+                deadlines, and reminders. It provides a simple way to manage activities and stay updated on important
+                due dates. My main contribution was working on the system template and its overall interface structure.
+              </p>
+
+              <div class="book-cover-colophon">
+                <span class="colophon-title">Colophon · Tech Stack:</span>
+                <div class="colophon-pills">
+                  <span class="tech-pill">Python</span>
+                  <span class="tech-pill">Django</span>
+                  <span class="tech-pill">HTML</span>
+                  <span class="tech-pill">CSS</span>
+                  <span class="tech-pill">JavaScript</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Wanbi’s Mini Mart -->
+          <article class="book-cover-card">
+            <div class="book-spine-strip" aria-hidden="true">
+              <span class="spine-text">VOL. IV</span>
+            </div>
+
+            <div class="book-cover-surface">
+              <div class="book-cover-header">
+                <span class="cover-series-label">VOLUME IV · INFORMATION SYSTEM</span>
+                <span class="cover-edition-year">AY 2024–2025</span>
+              </div>
+
+              <div class="cover-title-group">
+                <h3 class="book-cover-title">Wanbi’s Mini Mart</h3>
+                <p class="book-cover-author">By Arianne Mei Z. Torres</p>
+                <div class="cover-gold-rule"></div>
+              </div>
+
+              <p class="book-cover-synopsis">
+                Wanbi’s Mini Mart is a basic management system designed to organize products, inventory, and sales
+                records for a small mini-mart. The project applies programming concepts to support basic business
+                operations and record management. I was heavily involved in the project and handled most of the
+                development, including its main features and overall implementation.
+              </p>
+
+              <div class="book-cover-colophon">
+                <span class="colophon-title">Colophon · Tech Stack:</span>
+                <div class="colophon-pills">
+                  <span class="tech-pill">JavaScript</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CHAPTER 04: WHERE I’VE LEARNED (Education Bookshelf)
+         ================================================================= -->
+    <section class="book-chapter section-education" id="education">
+      <div class="container">
+
+        <!-- Running Folio Header -->
+        <div class="running-folio-header" aria-hidden="true">
+          <span class="folio-left">Arianne Mei Z. Torres — Personal Portfolio</span>
+          <span class="folio-center">❦</span>
+          <span class="folio-right">Chapter 04 · p. 05</span>
+        </div>
+
+        <!-- Chapter Header -->
+        <header class="chapter-header">
+          <span class="chapter-numeral">CHAPTER 04</span>
+          <h2 class="chapter-title">Where I’ve Learned</h2>
+          <div class="chapter-rule">
+            <span class="chapter-rule-line"></span>
+            <span class="chapter-rule-icon">❧</span>
+            <span class="chapter-rule-line"></span>
+          </div>
+          <p class="chapter-subtext">A chronological bookshelf of academic foundations and progressive learning
+            milestones.</p>
+        </header>
+
+        <!-- Modern Minimalist Bookshelf Presentation -->
+        <div class="editorial-bookshelf-stage">
+
+          <div class="bookshelf-row">
+
+            <!-- Book Spine 1: BSIS -->
+            <article class="shelf-book-item book-bsis">
+              <div class="book-spine-binding">
+                <span class="spine-vol-tag">VOL. I</span>
+                <div class="spine-gold-emboss"></div>
+              </div>
+              <div class="shelf-book-body">
+                <div class="shelf-book-meta">
+                  <span class="shelf-status-pill">Currently: 3rd Year</span>
+                  <span class="shelf-period">Bacnotan, La Union | 2024–Present</span>
+                </div>
+                <h3 class="shelf-degree-title">Bachelor of Science in Information Systems</h3>
+                <p class="shelf-track-name">Service Management Track</p>
+                <p class="shelf-school-name">Don Mariano Marcos Memorial State University – North La Union Campus</p>
+              </div>
+            </article>
+
+            <!-- Book Spine 2: Industrial Technician -->
+            <article class="shelf-book-item book-tech">
+              <div class="book-spine-binding">
+                <span class="spine-vol-tag">VOL. II</span>
+                <div class="spine-gold-emboss"></div>
+              </div>
+              <div class="shelf-book-body">
+                <div class="shelf-book-meta">
+                  <span class="shelf-status-pill pill-neutral">Completed with Certification</span>
+                  <span class="shelf-period">Manila | 2022–2024</span>
+                </div>
+                <h3 class="shelf-degree-title">Industrial Technician Course</h3>
+                <p class="shelf-school-name">MFI Polytechnic Institute</p>
+              </div>
+            </article>
+
+            <!-- Book Spine 3: Senior High School -->
+            <article class="shelf-book-item book-shs">
+              <div class="book-spine-binding">
+                <span class="spine-vol-tag">VOL. III</span>
+                <div class="spine-gold-emboss"></div>
+              </div>
+              <div class="shelf-book-body">
+                <div class="shelf-book-meta">
+                  <span class="shelf-status-pill pill-honors">With Honors</span>
+                  <span class="shelf-period">Luna, La Union | Graduated 2022</span>
+                </div>
+                <h3 class="shelf-degree-title">Senior High School</h3>
+                <p class="shelf-school-name">Bungro-Sucoc Integrated School</p>
+              </div>
+            </article>
+
+            <!-- Book Spine 4: Junior High School -->
+            <article class="shelf-book-item book-jhs">
+              <div class="book-spine-binding">
+                <span class="spine-vol-tag">VOL. IV</span>
+                <div class="spine-gold-emboss"></div>
+              </div>
+              <div class="shelf-book-body">
+                <div class="shelf-book-meta">
+                  <span class="shelf-status-pill pill-honors">With Honors</span>
+                  <span class="shelf-period">Luna, La Union | Graduated 2020</span>
+                </div>
+                <h3 class="shelf-degree-title">Junior High School</h3>
+                <p class="shelf-school-name">Bungro-Sucoc Integrated School</p>
+              </div>
+            </article>
+
+            <!-- Book Spine 5: Elementary School -->
+            <article class="shelf-book-item book-elem">
+              <div class="book-spine-binding">
+                <span class="spine-vol-tag">VOL. V</span>
+                <div class="spine-gold-emboss"></div>
+              </div>
+              <div class="shelf-book-body">
+                <div class="shelf-book-meta">
+                  <span class="shelf-status-pill pill-neutral">Graduated 2016</span>
+                  <span class="shelf-period">Luna, La Union | Graduated 2016</span>
+                </div>
+                <h3 class="shelf-degree-title">Elementary School</h3>
+                <p class="shelf-school-name">Bungro-Sucoc Integrated School</p>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Bookshelf Base Ledge -->
+          <div class="bookshelf-ledge" aria-hidden="true">
+            <div class="ledge-top"></div>
+            <div class="ledge-front"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CHAPTER 05: WHAT I’VE LEARNED (Learning & Certifications)
+         ================================================================= -->
+    <section class="book-chapter section-learning" id="learning">
+      <div class="container">
+
+        <!-- Running Folio Header -->
+        <div class="running-folio-header" aria-hidden="true">
+          <span class="folio-left">Arianne Mei Z. Torres — Personal Portfolio</span>
+          <span class="folio-center">❦</span>
+          <span class="folio-right">Chapter 05 · p. 06</span>
+        </div>
+
+        <!-- Chapter Header -->
+        <header class="chapter-header">
+          <span class="chapter-numeral">CHAPTER 05</span>
+          <h2 class="chapter-title">What I’ve Learned</h2>
+          <div class="chapter-rule">
+            <span class="chapter-rule-line"></span>
+            <span class="chapter-rule-icon">❧</span>
+            <span class="chapter-rule-line"></span>
+          </div>
+          <p class="chapter-subtext">A reading ledger of verified certifications, seminars, workshops, and technical
+            training.</p>
+        </header>
+
+        <div class="learning-ledger-wrapper">
+          <div class="reading-ledger">
+
+            <div class="ledger-header-row">
+              <span class="ledger-col-index">Catalog</span>
+              <span class="ledger-col-title">Program & Certification Title</span>
+              <span class="ledger-col-source">Issuing Organization / Program Details</span>
+            </div>
+
+            <!-- Item 1 -->
+            <article class="ledger-row">
+              <div class="ledger-cell-num">REC · 01</div>
+              <div class="ledger-cell-title">
+                <h4 class="cert-item-title">Introduction to Cybersecurity</h4>
+              </div>
+              <div class="ledger-cell-source">
+                <span class="cert-issuer-badge">Cisco Networking Academy</span>
+                <span class="cert-role-badge">Participant</span>
+              </div>
+            </article>
+
+            <!-- Item 2 -->
+            <article class="ledger-row">
+              <div class="ledger-cell-num">REC · 02</div>
+              <div class="ledger-cell-title">
+                <h4 class="cert-item-title">Applied Industry-Based Technician Program</h4>
+                <p class="cert-subdetail">550 Hours Professional Training</p>
+              </div>
+              <div class="ledger-cell-source">
+                <span class="cert-issuer-badge">MFI Polytechnic Institute</span>
+                <span class="cert-role-badge">Participant</span>
+              </div>
+            </article>
+
+            <!-- Item 3 -->
+            <article class="ledger-row">
+              <div class="ledger-cell-num">REC · 03</div>
+              <div class="ledger-cell-title">
+                <h4 class="cert-item-title">Campus Leadership Training 2025</h4>
+                <p class="cert-subdetail">Himagsikan ng Diwa: Ang Paghubog ng mga Alab ng Pinuno</p>
+              </div>
+              <div class="ledger-cell-source">
+                <span class="cert-issuer-badge">CSCLT Training</span>
+                <span class="cert-role-badge">Participant</span>
+              </div>
+            </article>
+
+            <!-- Item 4 -->
+            <article class="ledger-row">
+              <div class="ledger-cell-num">REC · 04</div>
+              <div class="ledger-cell-title">
+                <h4 class="cert-item-title">Armada Logic's School Caravan</h4>
+                <p class="cert-subdetail">AI Tools and Software Technologies for Programming and Research</p>
+              </div>
+              <div class="ledger-cell-source">
+                <span class="cert-issuer-badge">Armada Logic Seminar</span>
+                <span class="cert-role-badge">Participant</span>
+              </div>
+            </article>
+
+            <!-- Item 5 -->
+            <article class="ledger-row">
+              <div class="ledger-cell-num">REC · 05</div>
+              <div class="ledger-cell-title">
+                <h4 class="cert-item-title">International Academic Lecture Series</h4>
+                <p class="cert-subdetail">ICT, Innovation and Collaboration</p>
+              </div>
+              <div class="ledger-cell-source">
+                <span class="cert-issuer-badge">Academic Lecture Series</span>
+                <span class="cert-role-badge">Participant</span>
+              </div>
+            </article>
+
+            <!-- Item 6 -->
+            <article class="ledger-row">
+              <div class="ledger-cell-num">REC · 06</div>
+              <div class="ledger-cell-title">
+                <h4 class="cert-item-title">Smart Coding Tips, Tricks, and Website Building with AI!</h4>
+              </div>
+              <div class="ledger-cell-source">
+                <span class="cert-issuer-badge">Seminar-Workshop</span>
+                <span class="cert-role-badge">Participant</span>
+              </div>
+            </article>
+
+            <!-- Item 7 -->
+            <article class="ledger-row">
+              <div class="ledger-cell-num">REC · 07</div>
+              <div class="ledger-cell-title">
+                <h4 class="cert-item-title">DMMMSU Internationalization</h4>
+                <p class="cert-subdetail">Ready, Set, Global!</p>
+              </div>
+              <div class="ledger-cell-source">
+                <span class="cert-issuer-badge">DMMMSU Institutional Event</span>
+                <span class="cert-role-badge">Participant</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Priority Focus Card (Reading Bookmark Style) -->
+        <div class="reading-bookmark-card">
+          <div class="bookmark-ribbon" aria-hidden="true"></div>
+          <div class="bookmark-content">
+            <span class="bookmark-eyebrow">Current Academic Trajectory & Priority</span>
+            <blockquote class="bookmark-quote">
+              "Building practical digital, communication, analytical, and problem-solving skills through academic
+              projects, hands-on experiences, and continuous learning in Information Systems."
+            </blockquote>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CHAPTER 06: LET’S CONNECT (Contact)
+         ================================================================= -->
+    <section class="book-chapter section-contact" id="contact">
+      <div class="container">
+
+        <!-- Running Folio Header -->
+        <div class="running-folio-header" aria-hidden="true">
+          <span class="folio-left">Arianne Mei Z. Torres — Personal Portfolio</span>
+          <span class="folio-center">❦</span>
+          <span class="folio-right">Chapter 06 · p. 07</span>
+        </div>
+
+        <!-- Chapter Header -->
+        <header class="chapter-header">
+          <span class="chapter-numeral">CHAPTER 06</span>
+          <h2 class="chapter-title">Let’s Connect</h2>
+          <div class="chapter-rule">
+            <span class="chapter-rule-line"></span>
+            <span class="chapter-rule-icon">❧</span>
+            <span class="chapter-rule-line"></span>
+          </div>
+          <p class="chapter-subtext">Open to Opportunities — eager to contribute my skills, collaborate, and continue
+            learning.</p>
+        </header>
+
+        <div class="contact-editorial-card">
+
+          <!-- Left Column: Contact Information & Channels -->
+          <div class="contact-col-details">
+            <div class="contact-intro-block">
+              <h3 class="contact-heading">Get In Touch</h3>
+              <p class="contact-narrative">
+                Whether you are an organization officer, faculty coordinator, team lead, or prospective collaborator
+                looking for an organized, service-oriented student, I would love to hear from you.
+              </p>
+              <div class="contact-status-indicator">
+                <span class="status-pulse-dot"></span>
+                <span>Currently Open to Opportunities</span>
+              </div>
+            </div>
+
+            <div class="contact-channels-list">
+
+              <!-- Email -->
+              <div class="contact-channel-item">
+                <span class="channel-label">Email</span>
+                <a href="mailto:ariannezampaga@gmail.com" class="channel-value" id="contact-email">
+                  ariannezampaga@gmail.com
+                </a>
+              </div>
+
+              <!-- Phone -->
+              <div class="contact-channel-item">
+                <span class="channel-label">Phone</span>
+                <a href="tel:+639203686232" class="channel-value" id="contact-phone">
+                  +63 920 3686 232
+                </a>
+              </div>
+
+              <!-- Location -->
+              <div class="contact-channel-item">
+                <span class="channel-label">Location</span>
+                <span class="channel-value plain-text">
+                  Luna, La Union, Philippines
+                </span>
+              </div>
+
+            </div>
+
+            <!-- Action Link Bar -->
+            <div class="contact-button-row">
+              <a href="mailto:ariannezampaga@gmail.com" class="btn-book-primary">
+                <span>Send Email</span>
+                <span class="btn-arrow">✉</span>
+              </a>
+              <a href="assets/Arianne-Mei-Torres-Resume.pdf" target="_blank" rel="noopener noreferrer"
+                class="btn-book-secondary" id="contact-view-resume">
+                <span>View Resume</span>
+                <span class="btn-arrow">↗</span>
+              </a>
+              <a href="tel:+639203686232" class="btn-book-secondary">
+                <span>Call Phone</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Send a Message Box -->
+          <div class="contact-col-form">
+            <div class="contact-form-card">
+              <div class="form-header">
+                <div class="form-folio-mark">❖ DIRECT CORRESPONDENCE</div>
+                <h3 class="form-title">Send a Message</h3>
+                <p class="form-subtext">Have a project inquiry, opportunity, or note? Send a direct message below.</p>
+              </div>
+
+              <form class="contact-message-form" id="contact-message-form">
+                <div class="form-group">
+                  <label for="message-name" class="form-label">Full Name</label>
+                  <input type="text" id="message-name" name="name" class="form-input" placeholder="Your Full Name"
+                    required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                  <label for="message-email" class="form-label">Email</label>
+                  <input type="email" id="message-email" name="email" class="form-input"
+                    placeholder="your.email@example.com" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                  <label for="message-subject" class="form-label">Subject</label>
+                  <input type="text" id="message-subject" name="subject" class="form-input"
+                    placeholder="Project inquiry, collaboration, etc." required>
+                </div>
+
+                <div class="form-group">
+                  <label for="message-text" class="form-label">Message</label>
+                  <textarea id="message-text" name="message" class="form-textarea" rows="4"
+                    placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-book-primary form-submit-btn" id="contact-submit-btn">
+                  <span>Send Message</span>
+                  <span class="btn-arrow">✉</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================================================================
+       BOOK FOOTER / COLOPHON
+       ================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+
+      <div class="footer-colophon">
+        <div class="colophon-mark">❖</div>
+        <h3 class="footer-name">ARIANNE MEI Z. TORRES</h3>
+        <p class="footer-role">Information Systems Student</p>
+        <p class="footer-program">3rd Year BSIS • Service Management Program</p>
+
+        <div class="footer-folio-line">
+          <span>— Folio 2026 · Ex Libris Arianne Mei Z. Torres —</span>
+        </div>
+
+        <!-- Book Navigation Links -->
+        <nav class="footer-nav" aria-label="Footer Book Index">
+          <ul class="footer-nav-list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <p class="copyright-text">
+          &copy; 2026 Arianne Mei Z. Torres. All rights reserved.
+        </p>
+        <p class="footer-subtext">
+          Designed as a modern, minimalist digital book portfolio.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification Feedback -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite"></div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
